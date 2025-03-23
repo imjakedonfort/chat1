@@ -1,0 +1,184 @@
+<style>
+    /* Stiluri generale pentru secțiuni */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    /* Containerul Chat */
+    #chatSection {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f2f2f2;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+    /* Containerul Escape Room */
+    #escapeRoomSection {
+      display: none; /* ascuns inițial */
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: black;
+    }
+    /* Stiluri pentru Chat (copiate din primul cod) */
+    .chat-container {
+      width: 400px;
+      max-width: 90%;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .chat-header {
+      background: #4a90e2;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      font-size: 18px;
+    }
+    .chat-body {
+      padding: 15px;
+      flex: 1;
+      overflow-y: auto;
+    }
+    .message {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: flex-end;
+    }
+    .message.player {
+      justify-content: flex-end;
+    }
+    .message.npc {
+      justify-content: flex-start;
+    }
+    .message .bubble {
+      max-width: 70%;
+      padding: 10px 15px;
+      border-radius: 15px;
+      position: relative;
+      line-height: 1.4;
+      background: #e5e5ea;
+      color: #000;
+    }
+    .message.player .bubble {
+      background: #4a90e2;
+      color: #fff;
+      border-bottom-right-radius: 0;
+    }
+    .typing {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .typing .dot {
+      width: 8px;
+      height: 8px;
+      background: #999;
+      border-radius: 50%;
+      margin: 0 3px;
+      opacity: 0.4;
+      animation: blink 1.2s infinite;
+    }
+    .typing .dot:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    .typing .dot:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+    @keyframes blink {
+      0% { opacity: 0.4; }
+      50% { opacity: 1; }
+      100% { opacity: 0.4; }
+    }
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 10px;
+      border-top: 1px solid #ddd;
+      background: #fafafa;
+    }
+    .options button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background: #4a90e2;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .options button:hover {
+      background: #357ab8;
+    }
+    /* Stiluri pentru Escape Room */
+    .forest {
+      /* Acum folosește imaginea cu ochiul */
+      background: url('eye.jpg') no-repeat center center;
+      background-size: cover;
+      height: 100vh;
+      position: relative;
+    }
+    .audio-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .glitch {
+      color: white;
+      font-size: 30px;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: glitch 2s infinite;
+    }
+    @keyframes glitch {
+      0% {
+        text-shadow: 1px 0 red, -1px 0 blue;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      50% {
+        text-shadow: -1px 0 red, 1px 0 blue;
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+      100% {
+        text-shadow: 1px 0 red, -1px 0 blue;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+    .final-message {
+      color: white;
+      text-align: center;
+      font-size: 40px;
+      position: absolute;
+      bottom: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      display: none;
+    }
+    /* Stil pentru chei (folosind emoji 🗝️) */
+    .key {
+      position: absolute;
+      font-size: 40px;
+      cursor: pointer;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+    }
+  </style>
